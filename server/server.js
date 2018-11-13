@@ -16,6 +16,13 @@ const PORT = 5000;
 app.use(express.static('server/public'));
 
 
+//listening for /vega in localhost:5000
+// >> localhost:5000/vega
+app.get('/vega', function(request, response){
+    response.send('Hello Vega');
+});
+
+
 
 // start out server, listen for connection on PORT (5000)
 app.listen(PORT, function () {
