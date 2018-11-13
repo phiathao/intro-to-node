@@ -2,6 +2,14 @@
 // give us the express library, from npm
 let express = require('express');
 
+// import modules
+let add = require('./modules/add.modules');
+let subtract = require('./modules/subtract.modules');
+let Cohort = require('./modules/names.modules');
+
+
+let vega = new Cohort();
+
 // creat an instance of express
 // app is out application
 // app is an object
@@ -19,7 +27,14 @@ app.use(express.static('server/public'));
 //listening for /vega in localhost:5000
 // >> localhost:5000/vega
 app.get('/vega', function(request, response){
-    response.send('Hello Vega');
+    let result = add ( 3, 4);
+    vega.printCohort();
+    response.send(`result :${result}`);
+});
+
+app.get('/subtract', function(request, response){
+    let result = subtract ( 4, 3);
+    response.send(`result :${result}`);
 });
 
 
